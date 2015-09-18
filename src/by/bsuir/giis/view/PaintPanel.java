@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
@@ -48,6 +49,8 @@ public class PaintPanel extends JPanel {
 	public int getStep() {
 		return step;
 	}
+
+	private Point point = null;
 
 	private List<Cell> clickedCells = new ArrayList<Cell>();
 	private List<Cell> cells = null;
@@ -212,8 +215,14 @@ public class PaintPanel extends JPanel {
 
 				switch (mainFrame.getAlgorithmType()) {
 				case BREZ_LINE:
+					endClicked = clickHandling(endClicked, e.getX(), e.getY());
+					break;
 				case CDA_LINE:
+					endClicked = clickHandling(endClicked, e.getX(), e.getY());
+					break;
 				case WU_LINE:
+					endClicked = clickHandling(endClicked, e.getX(), e.getY());
+					break;
 				default:
 					break;
 				}
@@ -312,6 +321,23 @@ public class PaintPanel extends JPanel {
 			}
 		}
 		repaint();
+	}
+
+	private boolean clickHandling(boolean endClicked, int x, int y) {
+		endClicked = false;
+		if (coordinates.isEmpty()) {
+			point = new Point(x / step, y / step);
+			coordinates.add(point);
+			clickedCells.add(new Cell(point, Color.LIGHT_GRAY));
+			repaint();
+		} else if (!coordinates.isEmpty() && coordinates.size() < 2) {
+			point = new Point(x / step, y / step);
+			coordinates.add(point);
+			clickedCells.add(new Cell(point, Color.LIGHT_GRAY));
+			repaint();
+			endClicked = true;
+		}
+		return endClicked;
 	}
 
 }

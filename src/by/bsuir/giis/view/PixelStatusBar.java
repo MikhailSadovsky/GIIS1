@@ -19,6 +19,8 @@ public class PixelStatusBar extends JPanel {
 
 	private static final long serialVersionUID = 3571283869138933236L;
 
+	private static int MAX_PIXEL_SIZE = 40;
+
 	public PixelStatusBar(final MainFrame mainFrame) {
 		initComponents();
 
@@ -32,7 +34,7 @@ public class PixelStatusBar extends JPanel {
 
 		jButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (zoomSlider.getValue() < 20)
+				if (zoomSlider.getValue() < MAX_PIXEL_SIZE)
 					zoomSlider.setValue(zoomSlider.getValue() + 1);
 			}
 		});
@@ -55,7 +57,7 @@ public class PixelStatusBar extends JPanel {
 
 		zoomSlider.setValue(1);
 		zoomSlider.setMinimum(1);
-		zoomSlider.setMaximum(20);
+		zoomSlider.setMaximum(MAX_PIXEL_SIZE);
 		zoomSlider.setMinorTickSpacing(1);
 		zoomSlider.setMajorTickSpacing(10);
 
