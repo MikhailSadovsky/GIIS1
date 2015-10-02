@@ -21,6 +21,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
+import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 
@@ -32,6 +33,8 @@ public class MainFrame extends JFrame {
 
 	private static final long serialVersionUID = -1292116759702514832L;
 
+	public static String outputText = "";
+	public static JTextArea output = new JTextArea(50, 50);
 	private ShapesToolBar toolBar;
 	PaintPanel paintPanel;
 	JLabel zoomLabel;
@@ -86,8 +89,11 @@ public class MainFrame extends JFrame {
 		});
 
 		toolBar = new ShapesToolBar(this, paintPanel);
+		JScrollPane outScroll = new JScrollPane(output);
+		output.setLineWrap(true);
 
 		add(scroller, BorderLayout.CENTER);
+		add(outScroll, BorderLayout.EAST);
 		setJMenuBar(createMenu());
 		add(statusBar, BorderLayout.SOUTH);
 		add(toolBar, BorderLayout.WEST);
