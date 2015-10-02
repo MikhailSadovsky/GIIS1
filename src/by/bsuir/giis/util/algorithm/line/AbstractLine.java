@@ -1,4 +1,4 @@
-package by.bsuir.giis.util.algorithm;
+package by.bsuir.giis.util.algorithm.line;
 
 import java.awt.Graphics;
 import java.awt.Point;
