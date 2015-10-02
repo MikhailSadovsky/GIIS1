@@ -13,6 +13,7 @@ import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import by.bsuir.giis.controller.IGraphicController;
@@ -223,13 +224,21 @@ public class PaintPanel extends JPanel {
 				case WU_LINE:
 					endClicked = clickHandling(endClicked, e.getX(), e.getY());
 					break;
+				case CIRCLE:
+					point = new Point(e.getX() / step, e.getY() / step);
+					coordinates.add(point);
+					clickedCells.add(new Cell(point, Color.LIGHT_GRAY));
+					coordinates.add(new Point(inputRadiusDialog(), 0));
+					repaint();
+					endClicked = true;
+					break;
 				default:
 					break;
 				}
 
 				if (endClicked) {
 					cellControl.setLineAlgorithm(mainFrame.getAlgorithmType());
-					cellControl.setCootdinatesForAlgorithm(coordinates);
+					cellControl.setCoordinatesForAlgorithm(coordinates);
 					coordinates.clear();
 					clickedCells.clear();
 					endClicked = false;
@@ -340,4 +349,24 @@ public class PaintPanel extends JPanel {
 		return endClicked;
 	}
 
+	private int inputRadiusDialog() {
+		int radius = 70;
+
+		String tempValue = JOptionPane.showInputDialog(paintPanel,
+				"Input radius");
+
+		if (tempValue != null)
+
+			if (!tempValue.isEmpty())
+				return radius = Integer.parseInt(tempValue);
+			else
+				JOptionPane.showMessageDialog(paintPanel,
+						"Will be selected by default");
+
+		else
+			JOptionPane.showMessageDialog(paintPanel,
+					"Will be selected by default");
+
+		return radius;
+	}
 }

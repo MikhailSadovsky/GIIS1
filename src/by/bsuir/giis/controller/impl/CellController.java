@@ -9,11 +9,13 @@ import javax.swing.JOptionPane;
 
 import by.bsuir.giis.model.Cell;
 import by.bsuir.giis.model.Coordinates;
-import by.bsuir.giis.util.algorithm.AbstractLine;
 import by.bsuir.giis.util.algorithm.AlgorithmType;
-import by.bsuir.giis.util.algorithm.impl.LineBREZ;
-import by.bsuir.giis.util.algorithm.impl.LineCDA;
-import by.bsuir.giis.util.algorithm.impl.LineWU;
+import by.bsuir.giis.util.algorithm.conic.AbstractConic;
+import by.bsuir.giis.util.algorithm.conic.impl.Circle;
+import by.bsuir.giis.util.algorithm.line.AbstractLine;
+import by.bsuir.giis.util.algorithm.line.impl.LineBREZ;
+import by.bsuir.giis.util.algorithm.line.impl.LineCDA;
+import by.bsuir.giis.util.algorithm.line.impl.LineWU;
 import by.bsuir.giis.view.MainFrame;
 import by.bsuir.giis.view.PaintPanel;
 
@@ -28,6 +30,7 @@ public class CellController {
 	Graphics gr;
 
 	private AbstractLine lineAlgorithm;
+	private AbstractConic conicAlgorithm;
 
 	private AlgorithmType algorithmType;
 
@@ -96,7 +99,7 @@ public class CellController {
 		this.algorithmType = algorithmType;
 	}
 
-	public void setCootdinatesForAlgorithm(Coordinates coordinates) {
+	public void setCoordinatesForAlgorithm(Coordinates coordinates) {
 		switch (algorithmType) {
 		case CDA_LINE:
 			lineAlgorithm = new LineCDA(coordinates);
@@ -112,6 +115,11 @@ public class CellController {
 			lineAlgorithm = new LineWU(coordinates);
 			lineAlgorithm.execution();
 			paintPanel.setCurrentShape(lineAlgorithm);
+			break;
+		case CIRCLE:
+			conicAlgorithm = new Circle(coordinates);
+			conicAlgorithm.execution();
+			paintPanel.setCurrentShape(conicAlgorithm);
 			break;
 		default:
 			break;

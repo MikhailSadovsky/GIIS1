@@ -22,11 +22,13 @@ public class ShapesToolBar extends JToolBar implements ActionListener {
 	private final String CDA_ICON = "images/cda_line.png";
 	private final String BREZ_ICON = "images/brez_line.png";
 	private final String WU_ICON = "images/wu_line.png";
+	private final String CIRCLE_ICON = "images/circle.png";
 
 	private final String GRID_ACTION = "grid";
 	private final String CDA_ACTION = "cda";
 	private final String BREZ_ACTION = "brez";
 	private final String WU_ACTION = "wu";
+	private final String CIRCLE_ACTION = "circle";
 
 	private WebToggleButton gridToggleButton = null;
 
@@ -50,6 +52,8 @@ public class ShapesToolBar extends JToolBar implements ActionListener {
 				"Алгоритм Брезентхема", BREZ_ACTION);
 		WebToggleButton wuToggleButton = createToggleButton(WU_ICON,
 				"Алгоритм Ву", WU_ACTION);
+		WebToggleButton circleToggleButton = createToggleButton(CIRCLE_ICON,
+				"Окружность", CIRCLE_ACTION);
 
 		cdaToggleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -63,10 +67,12 @@ public class ShapesToolBar extends JToolBar implements ActionListener {
 		buttonGroup.add(cdaToggleButton);
 		buttonGroup.add(brezToggleButton);
 		buttonGroup.add(wuToggleButton);
+		buttonGroup.add(circleToggleButton);
 
 		add(cdaToggleButton);
 		add(brezToggleButton);
 		add(wuToggleButton);
+		add(circleToggleButton);
 		addSeparator();
 		addSeparator();
 		addSeparator();
@@ -112,6 +118,9 @@ public class ShapesToolBar extends JToolBar implements ActionListener {
 			mainFrame.setAlgorithmType(AlgorithmType.BREZ_LINE);
 		} else if (actionCommand.equals(WU_ACTION)) {
 			mainFrame.setAlgorithmType(AlgorithmType.WU_LINE);
+		} else if (actionCommand.equals(CIRCLE_ACTION)) {
+			System.out.println("ciiircle");
+			mainFrame.setAlgorithmType(AlgorithmType.CIRCLE);
 		}
 	}
 
