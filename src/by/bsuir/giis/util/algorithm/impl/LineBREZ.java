@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import by.bsuir.giis.model.Cell;
 import by.bsuir.giis.model.Coordinates;
 import by.bsuir.giis.util.algorithm.AbstractLine;
+import by.bsuir.giis.view.MainFrame;
 
 public class LineBREZ extends AbstractLine {
 
@@ -104,7 +105,7 @@ public class LineBREZ extends AbstractLine {
 
 	public void execution() {
 
-		for (int t = 0; t < el; t++) {
+		for (int t = 1; t <= el; t++) {
 			e -= 2 * es;
 			if (e < 0) {
 				e += 2 * el;
@@ -114,9 +115,17 @@ public class LineBREZ extends AbstractLine {
 				newX += dX;
 				newY += dY;
 			}
-
+			MainFrame.outputText = MainFrame.outputText + "Шаг " + t + " ";
+			MainFrame.outputText = MainFrame.outputText
+					+ "Проекция на ось Х равна " + this.newX;
+			MainFrame.outputText = MainFrame.outputText
+					+ " Проекция на ось Y равна " + this.newY + "\n";
+			MainFrame.outputText = MainFrame.outputText
+					+ " Значение ошибки е равно " + e + "\n";
 			cells.add(new Cell((int) newX, (int) newY, color));
 		}
+		MainFrame.output.setText(MainFrame.outputText);
+
 	}
 
 }

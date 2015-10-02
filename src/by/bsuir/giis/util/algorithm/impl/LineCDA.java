@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import by.bsuir.giis.model.Cell;
 import by.bsuir.giis.model.Coordinates;
 import by.bsuir.giis.util.algorithm.AbstractLine;
+import by.bsuir.giis.view.MainFrame;
 
 public class LineCDA extends AbstractLine {
 
@@ -48,14 +49,22 @@ public class LineCDA extends AbstractLine {
 	@Override
 	public void execution() {
 
-		for (count = 0; count < length; count++) {
+		for (count = 1; count <= length; count++) {
 
 			newX = newX + dX;
 			newY = newY + dY;
 
 			cells.add(new Cell((int) newX, (int) newY, color));
+			MainFrame.outputText = MainFrame.outputText + "Шаг " + count + " ";
+			MainFrame.outputText = MainFrame.outputText + " Х: " + this.newX;
+			MainFrame.outputText = MainFrame.outputText + " Y: " + this.newY
+					+ "\n";
+			MainFrame.outputText = MainFrame.outputText + " Координаты: ( "
+					+ (int) this.newX + ", " + (int) this.newY + ") \n";
 
 		}
+
+		MainFrame.output.setText(MainFrame.outputText);
 	}
 
 }
