@@ -69,11 +69,11 @@ public class LineWU extends AbstractLine {
 			cells.add(new Cell(beginPoint.x, beginPoint.y, color));
 
 			MainFrame.outputText = MainFrame.outputText
-					+ "Проекция на ось Х равна " + this.beginPoint.x;
+					+ " X: " + this.beginPoint.x;
 			MainFrame.outputText = MainFrame.outputText
-					+ " Проекция на ось Y равна " + this.beginPoint.y + "\n";
+					+ " Y: " + this.beginPoint.y + "\n";
 			MainFrame.outputText = MainFrame.outputText
-					+ "Интенсивность пикселя: " + color.getAlpha() + "\n";
+					+ " Color alpha: " + color.getAlpha() + "\n";
 
 			for (int x = beginPoint.x + 1; x < endPoint.x; x++) {
 				// Верхняя точка
@@ -82,11 +82,11 @@ public class LineWU extends AbstractLine {
 						(int) (255 - FPart(intery) * 255));
 				cells.add(new Cell(x, IPart(intery), color));
 				MainFrame.outputText = MainFrame.outputText
-						+ "Проекция на ось Х равна " + x;
+						+ " X: " + x;
 				MainFrame.outputText = MainFrame.outputText
-						+ " Проекция на ось Y равна " + IPart(intery) + "\n";
+						+ " Y: " + IPart(intery) + "\n";
 				MainFrame.outputText = MainFrame.outputText
-						+ " Интенсивность пикселя: " + color.getAlpha() + "\n";
+						+ " Color alpha: " + color.getAlpha() + "\n";
 				// Нижняя точка
 
 				// Нижняя точка
@@ -95,11 +95,11 @@ public class LineWU extends AbstractLine {
 				cells.add(new Cell(x, IPart(intery) + 1, color));
 				int temp = IPart(intery) + 1;
 				MainFrame.outputText = MainFrame.outputText
-						+ "Проекция на ось Х равна " + x;
+						+ " X: " + x;
 				MainFrame.outputText = MainFrame.outputText
-						+ " Проекция на ось Y равна " + temp + "\n";
+						+ " Y: " + temp + "\n";
 				MainFrame.outputText = MainFrame.outputText
-						+ " Интенсивность пикселя: " + color.getAlpha() + "\n";
+						+ " Color alpha: " + color.getAlpha() + "\n";
 
 				// Изменение координаты Y
 				intery += grad;
@@ -126,11 +126,11 @@ public class LineWU extends AbstractLine {
 			cells.add(new Cell(beginPoint.x, beginPoint.y, color));
 
 			MainFrame.outputText = MainFrame.outputText
-					+ "Проекция на ось Х равна " + this.beginPoint.x;
+					+ " X: " + this.beginPoint.x;
 			MainFrame.outputText = MainFrame.outputText
-					+ " Проекция на ось Y равна " + this.beginPoint.y + "\n";
+					+ " Y: " + this.beginPoint.y + "\n";
 			MainFrame.outputText = MainFrame.outputText
-					+ "Интенсивность пикселя: " + color.getAlpha() + "\n";
+					+ " Color alpha: " + color.getAlpha() + "\n";
 
 			for (int y = beginPoint.y + 1; y < endPoint.y; y++) {
 				// Верхняя точка
@@ -140,22 +140,22 @@ public class LineWU extends AbstractLine {
 				cells.add(new Cell(IPart(interx), y, color));
 
 				MainFrame.outputText = MainFrame.outputText
-						+ "Проекция на ось Х равна " + IPart(interx);
+						+ " X: " + IPart(interx);
 				MainFrame.outputText = MainFrame.outputText
-						+ " Проекция на ось Y равна " + y + "\n";
+						+ " Y: " + y + "\n";
 				MainFrame.outputText = MainFrame.outputText
-						+ " Интенсивность пикселя: " + color.getAlpha() + "\n";
+						+ " Color alpha: " + color.getAlpha() + "\n";
 				// Нижняя точка
 				color = new Color(this.color.getRed(), this.color.getGreen(),
 						this.color.getBlue(), (int) (FPart(interx) * 255));
 				cells.add(new Cell(IPart(interx) + 1, y, color));
 				int tmp = IPart(interx) + 1;
 				MainFrame.outputText = MainFrame.outputText
-						+ "Проекция на ось Х равна " + tmp;
+						+ " X: " + tmp;
 				MainFrame.outputText = MainFrame.outputText
-						+ " Проекция на ось Y равна " + y + "\n";
+						+ " Y: " + y + "\n";
 				MainFrame.outputText = MainFrame.outputText
-						+ " Интенсивность пикселя: " + color.getAlpha() + "\n";
+						+ " Color alpha: " + color.getAlpha() + "\n";
 
 				// Изменение координаты X
 				interx += grad;
@@ -164,11 +164,11 @@ public class LineWU extends AbstractLine {
 			cells.add(new Cell(endPoint.x, endPoint.y, color));
 
 			MainFrame.outputText = MainFrame.outputText
-					+ "Проекция на ось Х равна " + endPoint.x;
+					+ " X: " + endPoint.x;
 			MainFrame.outputText = MainFrame.outputText
-					+ " Проекция на ось Y равна " + endPoint.y + "\n";
+					+ " Y: " + endPoint.y + "\n";
 			MainFrame.outputText = MainFrame.outputText
-					+ " Интенсивность пикселя: " + color.getAlpha() + "\n";
+					+ " Color alpha: " + color.getAlpha() + "\n";
 
 		}
 

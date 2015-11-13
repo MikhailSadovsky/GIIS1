@@ -27,7 +27,7 @@ public class PixelStatusBar extends JPanel {
 		zoomSlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				mainFrame.changeZoom(zoomSlider.getValue());
-				zoomLabel.setText("Размер пикселя: " + zoomSlider.getValue()
+				zoomLabel.setText("Pixel size: " + zoomSlider.getValue()
 						+ "  ");
 			}
 		});
@@ -61,10 +61,10 @@ public class PixelStatusBar extends JPanel {
 		zoomSlider.setMinorTickSpacing(1);
 		zoomSlider.setMajorTickSpacing(10);
 
-		jButton2.setToolTipText("Крупнее");
-		jButton3.setToolTipText("Мельче");
+		jButton2.setToolTipText("Increase");
+		jButton3.setToolTipText("Decrease");
 
-		zoomLabel.setText("Размер пикселя: " + zoomSlider.getValue() + "  ");
+		zoomLabel.setText("Pixel size: " + zoomSlider.getValue() + "  ");
 
 		GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);

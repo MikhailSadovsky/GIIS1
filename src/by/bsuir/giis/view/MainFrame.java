@@ -116,9 +116,9 @@ public class MainFrame extends JFrame {
 	private JMenuBar createMenu() {
 		JMenuBar menuBar = new JMenuBar();
 
-		JMenu draw = new JMenu("Рисование");
+		JMenu draw = new JMenu("Menu");
 
-		JMenuItem clearMenuItem = new JMenuItem("Очистить", new ImageIcon(
+		JMenuItem clearMenuItem = new JMenuItem("Clear", new ImageIcon(
 				getImage("images/clear.png")));
 		clearMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE,
 				KeyEvent.SHIFT_MASK));

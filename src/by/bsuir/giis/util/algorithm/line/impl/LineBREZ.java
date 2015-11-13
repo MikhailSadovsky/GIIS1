@@ -115,13 +115,13 @@ public class LineBREZ extends AbstractLine {
 				newX += dX;
 				newY += dY;
 			}
-			MainFrame.outputText = MainFrame.outputText + "Шаг " + t + " ";
+			MainFrame.outputText = MainFrame.outputText + "Step " + t + " ";
 			MainFrame.outputText = MainFrame.outputText
-					+ "Проекция на ось Х равна " + this.newX;
+					+ "X: " + this.newX;
 			MainFrame.outputText = MainFrame.outputText
-					+ " Проекция на ось Y равна " + this.newY + "\n";
+					+ " Y: " + this.newY + "\n";
 			MainFrame.outputText = MainFrame.outputText
-					+ " Значение ошибки е равно " + e + "\n";
+					+ " Fault " + e + "\n";
 			cells.add(new Cell((int) newX, (int) newY, color));
 		}
 		MainFrame.output.setText(MainFrame.outputText);

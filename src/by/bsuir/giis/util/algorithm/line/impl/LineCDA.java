@@ -55,11 +55,11 @@ public class LineCDA extends AbstractLine {
 			newY = newY + dY;
 
 			cells.add(new Cell((int) newX, (int) newY, color));
-			MainFrame.outputText = MainFrame.outputText + "Шаг " + count + " ";
-			MainFrame.outputText = MainFrame.outputText + " Х: " + this.newX;
+			MainFrame.outputText = MainFrame.outputText + "Step " + count + " ";
+			MainFrame.outputText = MainFrame.outputText + " X: " + this.newX;
 			MainFrame.outputText = MainFrame.outputText + " Y: " + this.newY
 					+ "\n";
-			MainFrame.outputText = MainFrame.outputText + " Координаты: ( "
+			MainFrame.outputText = MainFrame.outputText + " Coordinates: ( "
 					+ (int) this.newX + ", " + (int) this.newY + ") \n";
 
 		}

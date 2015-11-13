@@ -45,15 +45,15 @@ public class ShapesToolBar extends JToolBar implements ActionListener {
 
 	private void initComponents() {
 
-		gridToggleButton = createToggleButton(GRID_ICON, "Сетка", GRID_ACTION);
+		gridToggleButton = createToggleButton(GRID_ICON, "Grid", GRID_ACTION);
 		WebToggleButton cdaToggleButton = createToggleButton(CDA_ICON,
-				"Алгоритм ЦДА", CDA_ACTION);
+				"CDA", CDA_ACTION);
 		WebToggleButton brezToggleButton = createToggleButton(BREZ_ICON,
-				"Алгоритм Брезентхема", BREZ_ACTION);
+				"Brezenham", BREZ_ACTION);
 		WebToggleButton wuToggleButton = createToggleButton(WU_ICON,
-				"Алгоритм Ву", WU_ACTION);
+				"Wu", WU_ACTION);
 		WebToggleButton circleToggleButton = createToggleButton(CIRCLE_ICON,
-				"Окружность", CIRCLE_ACTION);
+				"Circle", CIRCLE_ACTION);
 
 		cdaToggleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
